@@ -1,13 +1,8 @@
 import { Router } from "express";
-import posts from "../data/post.js";
+import postController from "../controllers/postController.js";
 
 const router = Router();
 
-router.get("/posts", (req, res) => {
-  if (!posts) {
-    res.status(404).send("No posts found");
-  }
-  res.send(posts);
-});
+router.get("/posts",postController.getAllPosts);
 
 export default router;
